@@ -1,0 +1,118 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+{% block banner_slider %}
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'app/images/banner/b6.jpg' %}" class="d-block w-100" alt="..." height="500px"> 
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'app/images/banner/b7.jpg' %}" class="d-block w-100" alt="..." height="500px">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'app/images/banner/b8.jpg' %}" class="d-block w-100" alt="..." height="500px">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'app/images/banner/b9.jpg' %}" class="d-block w-100" alt="..." width:100%, height="500px">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </a>
+</div>
+<!-- End Banner Slider -->
+{% endblock banner_slider %}
+
+{% block livesale %}
+<!-- Live Sale Section -->
+<div class="container">
+  <div class="row bg-danger text-center p-5 text-white border-bottom shadow">
+    <h1>Welcome To ThakArtGallery</h1>
+    <p>                 I am an Art Teacher at Anandwan, which was set up by Baba Amte. I teach art in the Deaf-Mute school within the Anandwan campus and I also give art inputs and guidance to students and also for artisans at the art-shoppe in the Anandwan campus. I am well-known for my grain-rangolis and I am often invited for cultural festivals to make theme-based grain-rangolis.</p>
+  
+  </div>
+</div> 
+<!-- End Live Sale Section -->
+{% endblock livesale %}
+
+{% block main-content %}
+<!-- 1st Product Slider -->
+<div class="m-3">
+ <h2>Thakgallery Modern Paintings </h2>
+ <!-- Slider 1 -->
+ <div class="owl-carousel" id="slider1">
+{% for m in modern %}
+  <a href="{% url 'product-detail' m.id%}" class="btn"><div class="item"><img src="{{m.product_image.url}}" alt="" height="200px"><span class="fw-bold">{{m.title}}</span><br><span class="fs-5"> Rs. {{m.discounted_price}}</span></div><button type="button" class="btn btn-primary btn-sm">View Details</button></a>
+  
+{% endfor %}
+
+ </div>
+</div>
+<!-- End 1st Product Slider -->
+
+<!-- Payment Info Section -->
+<div class="container my-5">
+ <div class="row">
+  <div class="col-sm-3">
+   <div class="card mb-3">
+     <div class="card-body">
+     <img src="{% static 'app/images/payavail/cc.jpg' %}" alt="" srcset="" class="img-fluid">
+     </div>
+   </div>
+  </div>
+  <div class="col-sm-3">
+   <div class="card mb-3">
+     <div class="card-body">
+      <img src="{% static 'app/images/payavail/upi.jpg' %}" alt="" srcset="" class="img-fluid">
+     </div>
+   </div>
+  </div>
+  <div class="col-sm-3">
+   <div class="card mb-3">
+     <div class="card-body">
+      <img src="{% static 'app/images/payavail/nb.jpg' %}" alt="" srcset="" class="img-fluid">
+     </div>
+   </div>
+  </div>
+  <div class="col-sm-3">
+   <div class="card mb-3">
+     <div class="card-body">
+      <img src="{% static 'app/images/payavail/bj.jpg' %}" alt="" srcset="" class="img-fluid">
+     </div>
+   </div>
+  </div>
+ </div>
+</div>
+<!-- End Payment Info Section -->
+
+<!-- 2nd Product Slider -->
+<div class="mx-3">
+ <h2>Thakgallery Abstrac Painting</h2>
+ <!-- Slider 2 -->
+ <div class="owl-carousel" id="slider2">
+  {% for a in abstract %}
+  <a href="{% url 'product-detail' a.id%}" class="btn"><div class="item"><img src="{{a.product_image.url}}" alt="" height="200px"><span class="fw-bold">{{a.title}}</span><br><span class="fs-5"> Rs. {{a.discounted_price}}</span></div><button type="button" class="btn btn-primary btn-sm">View Details</button></a>
+  {% endfor %}
+ </div>
+</div>
+<div class="mx-3">
+  <h2>Thakgallery Realistic Painting </h2>
+<div class="owl-carousel" id="slider3">
+  {% for r in realistic %}
+  <a href="{% url 'product-detail' r.id%}" class="btn">
+    <div class="item"><img src="{{r.product_image.url}}" alt="" height="200px">
+      <span class="fw-bold">{{r.title}}</span><br><span class="fs-5"> Rs. {{r.discounted_price}}</span></div><button type="button" class="btn btn-primary btn-sm">View Details</button></a>
+  {% endfor %}
+  </div>
+ </div>
+
+<!-- End 2nd Product Slider -->
+{% endblock main-content %}
+

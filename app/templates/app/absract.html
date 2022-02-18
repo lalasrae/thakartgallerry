@@ -1,0 +1,31 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Absract Paintings{% endblock title %}
+{% block main-content %}
+<div class="container my-5">
+ <div class="row">
+  <div class="col-sm-3">
+      <div class="list-group">
+          <a href="{% url 'abstract' %}" class="list-group-item list-group-item-action" aria-current="true">All Abstract Paintings</a>
+      </div>
+  </div>
+  <div class="col-sm-9">
+      <div class="row">
+        {% for a in abstract %}
+          <div class="col-sm-6 text-center mb-4">
+              <a href="{% url 'product-detail' a.id %}" class="btn">
+                  <div class="item">
+                      <img src="{{a.product_image.url}}" alt="" height="300" class="">
+                      <div class="fw-bold">{{a.title}}</div>
+                      <div class="fw-bold">Rs. {{a.discounted_price}}</div>
+                      <small class="fw-light text-decorarion-line-through">{{a.selling_price}}</small>
+                  </div>
+                  <button type="button" class="btn btn-primary btn-sm" style="width: 200px;">View Details</button>
+              </a>
+          </div>
+        {% endfor %}
+      </div>
+  </div>
+ </div>
+</div>
+{% endblock main-content %}
