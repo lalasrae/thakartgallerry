@@ -126,8 +126,6 @@ MEDIA_ROOT = BASE_DIR / 'media'
 LOGIN_REDIRECT_URL = '/profile/'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 SESSION_ENGINE = "django.contrib.sessions.backends.db"
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
 
 
 # Default primary key field type
