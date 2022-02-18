@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-ag_=i&1^odz=z8l-hboarwcjsxaby84ohxw09mvm4c@5fbm6&u
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["www.thakartgallery.com", "thakartgallery.com"]
 
 
 # Application definition
